@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1D9E75">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="English Coach Pro">
-<meta name="description" content="Professional English phrases, vocabulary, and social scripts — built for Dr. Sam.">
+<meta name="description" content="Professional English phrases, idioms, and expressions — built for Dr. Sam.">
 <link rel="manifest" href="manifest.json">
 <title>English Coach Pro</title>
 <style>
@@ -17,62 +16,85 @@ header{background:#1D9E75;color:white;padding:16px 20px;position:sticky;top:0;z-
 header h1{font-size:20px;font-weight:600;margin-bottom:2px;}
 header p{font-size:12px;opacity:0.8;}
 .controls{padding:14px 16px;background:white;border-bottom:1px solid #e5e5e5;position:sticky;top:72px;z-index:99;}
-.controls input{width:100%;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:15px;margin-bottom:8px;background:#fafafa;}
+.controls input{width:100%;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:15px;margin-bottom:10px;background:#fafafa;}
 .controls input:focus{outline:none;border-color:#1D9E75;}
-.cat-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;}
-.cat-btn{padding:6px 12px;border-radius:20px;border:1px solid #ddd;background:white;font-size:13px;white-space:nowrap;cursor:pointer;color:#555;}
-.cat-btn.active{background:#1D9E75;color:white;border-color:#1D9E75;}
-.count{padding:10px 16px;font-size:13px;color:#888;}
-.section{margin-bottom:8px;}
-.sec-header{padding:10px 16px 6px;font-size:13px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:0.05em;}
-.card{background:white;margin:0 12px 10px;border-radius:14px;padding:16px;border-left:4px solid #ccc;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.tab-row{display:flex;gap:6px;margin-bottom:8px;}
+.tab-btn{padding:7px 16px;border-radius:20px;border:1.5px solid #ddd;background:white;font-size:13px;font-weight:500;cursor:pointer;color:#555;white-space:nowrap;}
+.tab-btn.active{background:#1D9E75;color:white;border-color:#1D9E75;}
+.cat-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;}
+.cat-btn{padding:5px 12px;border-radius:20px;border:1px solid #ddd;background:white;font-size:12px;white-space:nowrap;cursor:pointer;color:#666;}
+.cat-btn.active{background:#085041;color:white;border-color:#085041;}
+.count{padding:8px 16px;font-size:13px;color:#888;}
+.section{margin-bottom:6px;}
+.sec-header{padding:10px 16px 4px;font-size:12px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:0.06em;}
+.card{background:white;margin:0 12px 10px;border-radius:14px;padding:15px;border-left:4px solid #ccc;box-shadow:0 1px 3px rgba(0,0,0,0.05);}
 .card.power{border-left-color:#534AB7;}
 .card.exec{border-left-color:#1D9E75;}
 .card.social{border-left-color:#378ADD;}
 .card.dad{border-left-color:#BA7517;}
 .card.speaker{border-left-color:#D4537E;}
 .card.meeting{border-left-color:#D85A30;}
+.card.biz{border-left-color:#1D9E75;}
+.card.problems{border-left-color:#E24B4A;}
+.card.decisions{border-left-color:#534AB7;}
+.card.people{border-left-color:#378ADD;}
+.card.mtg{border-left-color:#BA7517;}
+.card.church{border-left-color:#D4537E;}
+.card.tech{border-left-color:#085041;}
+.card.anime{border-left-color:#D85A30;}
+.card.friends{border-left-color:#378ADD;}
+.card.bbt{border-left-color:#534AB7;}
 .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
-.phrase{font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:4px;line-height:1.3;}
-.meaning{font-size:13px;color:#666;margin-bottom:10px;}
-.spk-btn{background:#f0faf6;border:none;border-radius:10px;padding:8px 10px;cursor:pointer;color:#1D9E75;font-size:18px;flex-shrink:0;}
+.phrase{font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:3px;line-height:1.3;}
+.meaning{font-size:13px;color:#666;margin-bottom:10px;line-height:1.5;}
+.spk-btn{background:#f0faf6;border:none;border-radius:10px;padding:8px 10px;cursor:pointer;color:#1D9E75;font-size:18px;flex-shrink:0;min-width:40px;text-align:center;}
 .spk-btn:active{background:#d0efe6;}
+.example{background:#f8f8f8;border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:13px;color:#333;line-height:1.5;}
+.example-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#999;margin-bottom:3px;}
 .ba{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
 .ba-box{padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;}
 .ba-before{background:#fafafa;color:#888;}
 .ba-after{background:#e8f7f2;color:#085041;}
 .ba-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;opacity:0.7;}
-.tip{font-size:12px;color:#888;font-style:italic;border-top:1px solid #f0f0f0;padding-top:8px;}
+.when{font-size:12px;color:#1D9E75;margin-bottom:5px;}
+.when-label{font-weight:600;}
+.caution{font-size:12px;color:#A32D2D;background:#fff5f5;padding:6px 10px;border-radius:6px;margin-bottom:5px;}
+.tip{font-size:12px;color:#888;font-style:italic;border-top:1px solid #f0f0f0;padding-top:8px;margin-top:4px;}
 .empty{text-align:center;padding:60px 20px;color:#aaa;}
-.empty-icon{font-size:48px;margin-bottom:12px;}
 </style>
 </head>
 <body>
 <header>
   <h1>English Coach Pro</h1>
-  <p>Professional phrases for every situation</p>
+  <p>Phrases, idioms, and expressions — built for Dr. Sam</p>
 </header>
 <div class="controls">
-  <input type="search" id="q" placeholder="Search phrases, situations..." oninput="render()">
+  <input type="search" id="q" placeholder="Search any phrase, word, or situation..." oninput="render()">
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="setTab('phrases')">Structured Phrases</button>
+    <button class="tab-btn" onclick="setTab('idioms')">Idioms & Expressions</button>
+  </div>
   <div class="cat-row" id="cats"></div>
 </div>
 <div class="count" id="cnt"></div>
 <div id="main"></div>
-
+<script>if("serviceWorker"in navigator){navigator.serviceWorker.register("sw.js");}</script>
+</body>
+</html>
 <script>
-const D=[
+const PHRASES=[
 {cat:"Power vocabulary",type:"power",items:[
-  {p:"That's a nuanced point.",m:"Shows you see complexity others miss.",before:"That's complicated.",after:"That's a nuanced point — let me unpack it.",tip:"Use when someone raises a layered issue in a meeting."},
+  {p:"That's a nuanced point.",m:"Shows you see complexity others miss — signals deep thinking.",before:"That's complicated.",after:"That's a nuanced point — let me unpack it.",tip:"Use when someone raises a layered issue in a meeting."},
   {p:"The underlying issue here is...",m:"Cuts through surface noise to the root cause.",before:"The real problem is...",after:"The underlying issue here is that our infrastructure hasn't scaled with demand.",tip:"Sounds more analytical than 'the real problem.'"},
   {p:"From a strategic standpoint...",m:"Signals executive-level thinking.",before:"I think we should...",after:"From a strategic standpoint, this investment positions us well for Q3.",tip:"Opens any recommendation with gravitas."},
-  {p:"To put this in context...",m:"Frames data so it lands with meaning.",before:"So the numbers are...",after:"To put this in context, last year's baseline was 40% lower.",tip:"Use before sharing any statistic or comparison."},
+  {p:"To put this in context...",m:"Frames data so it lands with meaning.",before:"So the numbers are...",after:"To put this in context, last year's baseline was 40% lower.",tip:"Use before sharing any statistic."},
   {p:"The implication of this is...",m:"Shows you think beyond the obvious.",before:"So that means...",after:"The implication of this is that we may need to revisit our rollout timeline.",tip:"Elevates casual observations to analytical conclusions."},
   {p:"What this essentially means is...",m:"Translates technical content for non-technical audiences.",before:"In other words...",after:"What this essentially means is the system can handle ten times the load.",tip:"Perfect when translating tech to business stakeholders."},
-  {p:"I'd like to draw a distinction here.",m:"Signals precise thinking.",before:"Wait, those are different...",after:"I'd like to draw a distinction here between system performance and user experience.",tip:"Use when two concepts are being confused."},
+  {p:"I'd like to draw a distinction here.",m:"Signals precise thinking — separates two things being confused.",before:"Wait, those are different...",after:"I'd like to draw a distinction here between system performance and user experience.",tip:"Use when two concepts are being blurred."},
   {p:"That's a compelling argument.",m:"Acknowledges a strong point professionally.",before:"Yeah that's a good point.",after:"That's a compelling argument — and it reinforces what I was about to propose.",tip:"Validates others while keeping your momentum."},
-  {p:"Let me offer a different perspective.",m:"Disagrees gracefully without confrontation.",before:"I don't agree.",after:"Let me offer a different perspective on that.",tip:"The professional way to push back in any setting."},
+  {p:"Let me offer a different perspective.",m:"Disagrees gracefully without confrontation.",before:"I don't agree.",after:"Let me offer a different perspective on that.",tip:"The professional way to push back."},
   {p:"The data suggests...",m:"Grounds your opinion in evidence.",before:"I think...",after:"The data suggests we're looking at a two-month delay if we don't act now.",tip:"Shifts from opinion to evidence-based language."},
-  {p:"That's not entirely accurate.",m:"Corrects someone without embarrassing them.",before:"That's wrong.",after:"That's not entirely accurate — let me add some context.",tip:"Useful when correcting diplomatically."},
+  {p:"That's not entirely accurate.",m:"Corrects someone without embarrassing them.",before:"That's wrong.",after:"That's not entirely accurate — let me add some context.",tip:"Useful for diplomatic corrections."},
   {p:"To be precise...",m:"Signals technical accuracy.",before:"I mean...",after:"To be precise, the latency issue occurs only under peak load conditions.",tip:"Use before a technical clarification."},
   {p:"This warrants further discussion.",m:"Flags an issue without derailing the meeting.",before:"We need to talk about this more.",after:"This warrants further discussion — can we schedule a follow-up?",tip:"Elegant way to table something."},
   {p:"Let me be transparent about this.",m:"Signals honesty and builds trust.",before:"I have to tell you...",after:"Let me be transparent — we are behind schedule by about two weeks.",tip:"Use when delivering uncomfortable truths."},
@@ -80,47 +102,47 @@ const D=[
 ]},
 {cat:"Presentation phrases",type:"exec",items:[
   {p:"Let me walk you through this.",m:"Classic professional opener for any explanation.",before:"So let me explain...",after:"Let me walk you through the architecture of the system.",tip:"Use to open any technical explanation."},
-  {p:"There are three key points I want to make.",m:"Signals organized thinking.",before:"I have some things to say...",after:"There are three key points I want to make about our migration plan.",tip:"Always preview your structure."},
+  {p:"There are three key points I want to make.",m:"Tells your audience what to expect — signals organized thinking.",before:"I have some things to say...",after:"There are three key points I want to make about our migration plan.",tip:"Always preview your structure."},
   {p:"Let me start with the big picture.",m:"Opens broad before going deep.",before:"Okay so first...",after:"Let me start with the big picture before we get into the technical details.",tip:"Essential for mixed audiences."},
-  {p:"This brings me to my next point.",m:"Smooth transition between ideas.",before:"And also...",after:"This brings me to my next point about scalability.",tip:"Replaces 'um, so...' between points."},
-  {p:"To summarize what we've covered...",m:"Signals you're wrapping up.",before:"So yeah that's it...",after:"To summarize: the problem, the solution, and the timeline.",tip:"Always close with a summary."},
+  {p:"This brings me to my next point.",m:"Smooth transition between ideas.",before:"And also...",after:"This brings me to my next point about scalability.",tip:"Replaces the dreaded 'um, so...'"},
+  {p:"To summarize what we've covered...",m:"Signals you're wrapping up — helps audiences retain.",before:"So yeah that's it...",after:"To summarize: the problem, the solution, and the timeline.",tip:"Always close with a summary."},
   {p:"The question worth asking here is...",m:"Introduces a key point as a rhetorical question.",before:"So we need to think about...",after:"The question worth asking here is: can our infrastructure support this growth?",tip:"Engages the audience."},
   {p:"What makes this significant is...",m:"Tells the audience why they should care.",before:"This is important because...",after:"What makes this significant is that no other vendor has solved this.",tip:"Use after presenting a finding."},
-  {p:"I want to be very clear about this.",m:"Signals a critical point is coming.",before:"Listen...",after:"I want to be very clear — this is not a resource issue, it's a process issue.",tip:"Prevents misunderstanding on important points."},
+  {p:"I want to be very clear about this.",m:"Signals a critical point is coming.",before:"Listen...",after:"I want to be very clear — this is not a resource issue, it's a process issue.",tip:"Prevents misunderstanding."},
   {p:"Bear with me for a moment.",m:"Buys time confidently.",before:"Um wait...",after:"Bear with me for a moment while I pull up the right data.",tip:"Confident people say this."},
-  {p:"Does that make sense so far?",m:"Checks comprehension professionally.",before:"You understand?",after:"Does that make sense so far, or would you like me to go deeper?",tip:"Much better than 'you get it?'"},
-  {p:"Let me give you a concrete example.",m:"Signals a practical illustration.",before:"Like for example...",after:"Let me give you a concrete example of how this plays out in production.",tip:"Grounds abstract concepts in reality."},
-  {p:"The bottom line is...",m:"Cuts to the conclusion.",before:"So basically...",after:"The bottom line is: we need three more weeks to do this right.",tip:"Executives love this phrase."},
+  {p:"Does that make sense so far?",m:"Checks comprehension professionally.",before:"You understand?",after:"Does that make sense so far, or would you like me to go deeper?",tip:"Better than 'you get it?'"},
+  {p:"Let me give you a concrete example.",m:"Signals a practical illustration is coming.",before:"Like for example...",after:"Let me give you a concrete example of how this plays out in production.",tip:"Grounds abstract concepts in reality."},
+  {p:"The bottom line is...",m:"Cuts to the conclusion — executives love this.",before:"So basically...",after:"The bottom line is: we need three more weeks to do this right.",tip:"Use when the room wants you to get to the point."},
   {p:"My recommendation would be...",m:"Owns a position with confidence.",before:"I think maybe we should...",after:"My recommendation would be to phase the rollout over two quarters.",tip:"'Would be' sounds considered but still authoritative."},
   {p:"This is where it gets interesting.",m:"Re-engages an audience that may be drifting.",before:"Okay so now...",after:"This is where it gets interesting — the system performs better under stress.",tip:"Use before your most important point."},
 ]},
 {cat:"Social conversation",type:"social",items:[
-  {p:"How do you know [the host]?",m:"The universal opener at any party.",before:"(standing alone nervously)",after:"How do you know Sarah? Did you two go to school together?",tip:"Works at every event. Everyone has an answer."},
-  {p:"I love what you said about...",m:"Joins an existing group conversation gracefully.",before:"(interrupting awkwardly)",after:"I love what you said about that — I've been thinking the same thing.",tip:"Listen for 30 seconds before jumping in."},
+  {p:"How do you know [the host]?",m:"The universal opener at any party or gathering.",before:"(standing alone nervously)",after:"How do you know Sarah? Did you two go to school together?",tip:"Works at every event. Everyone has an answer."},
+  {p:"I love what you said about...",m:"Joins an existing group conversation gracefully.",before:"(interrupting awkwardly)",after:"I love what you said about that — I've been thinking the same thing.",tip:"Listen 30 seconds before jumping in. Then reference what was just said."},
   {p:"This is my first time here — is it always this lively?",m:"Admits newness in a charming way.",before:"I don't really know anyone here.",after:"This is my first time at one of these — is it always this lively?",tip:"Invites people to help you feel welcome."},
   {p:"What do you do when you're not [here]?",m:"Gets people talking about what they love.",before:"What do you do for work?",after:"What do you do when you're not celebrating your friends' birthdays?",tip:"More interesting than 'what do you do?'"},
   {p:"That's actually really fascinating — tell me more.",m:"The phrase that makes anyone feel heard.",before:"Oh okay cool.",after:"That's actually really fascinating — tell me more about how that works.",tip:"People remember feeling interesting, not when you were interesting."},
   {p:"You know, I never thought about it that way.",m:"Shows intellectual humility.",before:"Hmm.",after:"You know, I never thought about it that way. That actually changes how I see it.",tip:"Makes the other person feel insightful."},
   {p:"Can I ask your take on something?",m:"Invites someone into a mini-discussion.",before:"What do you think?",after:"Can I ask your take on something? I've been wrestling with this idea.",tip:"People feel flattered when asked for their opinion."},
   {p:"What's been the highlight of your week?",m:"Better than 'how are you' — gets a real answer.",before:"How are you doing?",after:"What's been the highlight of your week so far?",tip:"Almost no one asks this. It makes you memorable."},
-  {p:"I couldn't help but overhear — sorry to jump in, but...",m:"Polite way to join a conversation.",before:"(never joining)",after:"I couldn't help but overhear — I'm sorry to jump in, but I dealt with something similar.",tip:"The apology makes the interruption welcome."},
-  {p:"That reminds me of something that happened to me.",m:"Natural bridge to sharing your own story.",before:"Oh yeah me too...",after:"That actually reminds me of something when I first moved to the U.S.",tip:"Personal stories connect people faster than facts."},
+  {p:"I couldn't help but overhear — sorry to jump in, but...",m:"Polite way to join a conversation you weren't part of.",before:"(never joining)",after:"I couldn't help but overhear — I'm sorry to jump in, but I dealt with something similar.",tip:"The apology makes the interruption welcome."},
+  {p:"That reminds me of something that happened to me.",m:"Natural bridge to sharing your own story.",before:"Oh yeah me too...",after:"That actually reminds me of something when I first moved to the U.S.",tip:"Personal stories connect faster than facts."},
 ]},
 {cat:"Dad joke delivery",type:"dad",items:[
-  {p:"Okay, I have to warn you — this is a dad joke.",m:"The pre-warning is half the humor.",before:"(just saying the joke)",after:"Okay, I have to warn you — this is a dad joke. You ready?",tip:"The meta-awareness makes it funnier."},
+  {p:"Okay, I have to warn you — this is a dad joke.",m:"The pre-warning is half the humor.",before:"(just saying the joke cold)",after:"Okay, I have to warn you — this is a dad joke. You ready?",tip:"The meta-awareness makes it funnier every time."},
   {p:"I'm not apologizing for that one.",m:"Sells the joke after the groan.",before:"(laughing nervously)",after:"(after the groan) I'm not apologizing for that one. That was solid.",tip:"Confidence after a groan is the key to dad joke delivery."},
   {p:"I've been waiting all day to say that.",m:"Classic dad joke closer.",before:"Haha get it?",after:"I've been waiting all day to say that.",tip:"Implies you planned it — more endearing."},
-  {p:"That one's free. The next one costs you.",m:"Keeps the energy going after a successful joke.",before:"(nothing)",after:"That one's free. The next one costs you.",tip:"Works when you're on a roll with your son's friends."},
-  {p:"I know, I know. I'll see myself out.",m:"Self-aware exit after a truly terrible pun.",before:"(laughing at your own joke too hard)",after:"I know, I know. I'll see myself out.",tip:"The most beloved dad joke phrase. Physically pretend to leave."},
+  {p:"That one's free. The next one costs you.",m:"Keeps energy going after a successful joke.",before:"(nothing)",after:"That one's free. The next one costs you.",tip:"Works perfectly on a roll with your son's friends."},
+  {p:"I know, I know. I'll see myself out.",m:"Self-aware exit after a truly terrible pun.",before:"(laughing at your own joke too hard)",after:"I know, I know. I'll see myself out.",tip:"Physically pretend to leave. Gets a laugh every time."},
 ]},
 {cat:"Public speaking",type:"speaker",items:[
-  {p:"Thank you for having me — it's an honor to be here.",m:"Classic and graceful opening.",before:"Um okay so thank you for inviting me...",after:"Thank you for having me — it's a genuine honor to be here with all of you today.",tip:"Say it slowly — don't rush the opening."},
-  {p:"Let me start with a question.",m:"Engages the audience from the first sentence.",before:"So today I'm going to talk about...",after:"Let me start with a question — how many of you have felt technology was working against you?",tip:"Rhetorical questions create instant participation."},
+  {p:"Thank you for having me — it's an honor to be here.",m:"Classic and graceful opening.",before:"Um okay so thank you for inviting me...",after:"Thank you for having me — it's a genuine honor to be here with all of you today.",tip:"Say it slowly. Don't rush the opening."},
+  {p:"Let me start with a question.",m:"Engages the audience from sentence one.",before:"So today I'm going to talk about...",after:"Let me start with a question — how many of you have felt technology was working against you?",tip:"Rhetorical questions create instant participation."},
   {p:"In my experience working with...",m:"Grounds your credibility naturally.",before:"I know a lot about this because...",after:"In my experience working with insurance carriers and fleet operators across the country...",tip:"Let your experience speak — don't announce it."},
   {p:"What I've come to believe, after decades in this field, is...",m:"Authority statement that carries weight.",before:"I think...",after:"What I've come to believe, after decades in this field, is that technology only works when people trust it.",tip:"'Decades in this field' does the credibility work for you."},
   {p:"Let me tell you a story.",m:"The most powerful pivot in any talk.",before:"Here's an example...",after:"Let me tell you a story. When I first came to this country at 13 years old...",tip:"The audience leans in every single time."},
-  {p:"And that's when it hit me.",m:"The turning point phrase in any story.",before:"And then I realized...",after:"And that's when it hit me — the problem wasn't the system. It was how we were thinking about it.",tip:"'Hit me' is visceral. It signals a genuine moment of insight."},
-  {p:"If there's one thing I want you to take away today...",m:"Signals your core message.",before:"So the main point is...",after:"If there's one thing I want you to take away today, it's this: safe drivers are made, not born.",tip:"Say this slowly. Pause before the takeaway."},
+  {p:"And that's when it hit me.",m:"The turning point phrase in any story.",before:"And then I realized...",after:"And that's when it hit me — the problem wasn't the system. It was how we were thinking about it.",tip:"'Hit me' is visceral. Signals a genuine moment of insight."},
+  {p:"If there's one thing I want you to take away today...",m:"Signals your core message.",before:"So the main point is...",after:"If there's one thing I want you to take away today, it's this: safe drivers are made, not born.",tip:"Say slowly. Pause before the takeaway. Let it breathe."},
   {p:"I'll leave you with this thought.",m:"Elegant closing signal.",before:"Okay so that's about it...",after:"I'll leave you with this thought — every system reflects the values of the people who built it.",tip:"A closing thought should be quotable. Write it beforehand."},
   {p:"Thank you for your time and your attention.",m:"Closes with sincere gratitude.",before:"Okay that's it, thanks.",after:"Thank you for your time and your attention — both are valuable, and I don't take either for granted.",tip:"The addition after the comma makes it memorable."},
 ]},
@@ -136,15 +158,130 @@ const D=[
 ]},
 ];
 
+const IDIOMS=[
+{cat:"Business performance",type:"biz",items:[
+  {p:"Business is booming.",m:"Business is growing fast and strong — like Jensen uses it.",ex:"We just signed three new carriers this quarter — business is booming.",when:"Describing strong growth to clients, at a conference, or in a team meeting.",tip:"Short, punchy, confident. No explanation needed."},
+  {p:"We're gaining traction.",m:"Starting to get real results after a period of effort.",ex:"The new training module launched six weeks ago and we're already gaining traction with the fleet segment.",when:"Early-stage success after a launch or new initiative.",tip:"Use when things are moving but not yet at full speed."},
+  {p:"We're firing on all cylinders.",m:"Everything working at full capacity — team, product, sales all aligned.",ex:"Since we integrated the new platform, the whole operation is firing on all cylinders.",when:"Celebrating a period of high performance.",tip:"Very American. Comes from car engines — all cylinders working = peak power."},
+  {p:"The needle is moving.",m:"Progress is happening — measurable improvement.",ex:"Three months into the pilot, the needle is finally moving on crash reduction rates.",when:"Reporting progress on a slow-moving goal.",tip:"Especially good when the goal is hard to measure — implies meaningful movement."},
+  {p:"We're hitting our stride.",m:"Reaching peak performance after a warm-up period.",ex:"The team struggled in Q1, but we're really hitting our stride now.",when:"After overcoming early challenges.",tip:"Implies earned momentum, not luck."},
+  {p:"We're ahead of the curve.",m:"Doing something before the rest of the industry catches on.",ex:"We built adaptive learning into our platform five years ago — we were ahead of the curve.",when:"Describing your competitive advantage or innovation.",tip:"Great for positioning ADEPT Driver against competitors."},
+  {p:"Numbers are trending up.",m:"Metrics are improving over time.",ex:"Completion rates, engagement scores, claim reductions — everything is trending up.",when:"Presenting data to leadership or clients.",tip:"More confident-sounding than 'the numbers are getting better.'"},
+  {p:"We're in the black.",m:"The company is profitable.",ex:"After a tough two years, I'm happy to report we are firmly in the black.",when:"Financial discussions, board updates.",tip:"Opposite is 'in the red' — losing money."},
+]},
+{cat:"Problems & challenges",type:"problems",items:[
+  {p:"We hit a wall.",m:"Stopped making progress — a hard obstacle.",ex:"We hit a wall with the state regulatory approval — nothing was moving for three months.",when:"Explaining a stalled project.",tip:"Honest and relatable — even executives say this."},
+  {p:"We're in the weeds.",m:"Overwhelmed by details — can't see the big picture.",ex:"We got so deep into the technical specs that we were in the weeds and lost the client's attention.",when:"Explaining why a meeting or project got derailed.",tip:"Use to describe what happened, or to prevent it: 'Let's not get in the weeds here.'"},
+  {p:"There's a bottleneck.",m:"One thing slowing everything else down.",ex:"The bottleneck right now is approval time from the carrier's compliance team.",when:"Diagnosing why a process is slow.",tip:"Technical and business people both use this — it bridges your two worlds perfectly."},
+  {p:"We're putting out fires.",m:"Dealing with urgent problems reactively instead of proactively.",ex:"This week we've just been putting out fires — no time for the strategic work.",when:"Explaining a reactive week or period.",tip:"Implies you'd rather be proactive — signals self-awareness."},
+  {p:"We dropped the ball.",m:"Someone failed to do what was expected.",ex:"I'll be honest — we dropped the ball on the onboarding timeline for that client.",when:"Taking accountability openly.",tip:"Owning this phrase builds more trust than deflecting."},
+  {p:"It's a moving target.",m:"The goal or requirement keeps changing.",ex:"Regulatory compliance in this space is a moving target — what's acceptable today may change next quarter.",when:"Explaining unpredictability to stakeholders.",tip:"Useful for managing expectations."},
+  {p:"We're spinning our wheels.",m:"Working hard but making no real progress.",ex:"Without a clear decision from leadership, we're just spinning our wheels.",when:"Signaling that a decision or resource is needed before progress can happen.",tip:"Implies you're ready to move — just blocked."},
+  {p:"The elephant in the room.",m:"The obvious problem everyone sees but no one is addressing.",ex:"I think the elephant in the room here is that our pricing model needs to be revisited.",when:"When you need to name something uncomfortable in a meeting.",tip:"Saying this takes courage — it positions you as the honest voice in the room."},
+]},
+{cat:"Decisions & strategy",type:"decisions",items:[
+  {p:"Let's move the needle.",m:"Let's make meaningful, measurable progress.",ex:"We've talked about brand awareness for two quarters. What will actually move the needle?",when:"Pushing a team from discussion to action.",tip:"Implies impatience with talk and readiness for results."},
+  {p:"We need to pivot.",m:"Strategically change direction based on new information.",ex:"The enterprise segment isn't responding — I think we need to pivot toward the mid-market.",when:"Proposing a strategic shift.",tip:"'Pivot' sounds intentional and smart. 'Change direction' sounds like you were wrong."},
+  {p:"Let's not boil the ocean.",m:"Don't try to solve everything at once — focus.",ex:"I appreciate the ambition, but let's not boil the ocean. What's the one thing we must get right first?",when:"Keeping a team focused when scope is getting too large.",tip:"One of the most useful meeting phrases you'll ever use."},
+  {p:"We need to pull the trigger.",m:"Make the decision and act — stop hesitating.",ex:"We've been evaluating vendors for four months. It's time to pull the trigger.",when:"When a decision has been delayed too long.",tip:"Signals decisiveness — leaders say this."},
+  {p:"We need to get buy-in.",m:"We need people to agree and actively support this.",ex:"Before we roll this out, we need to get buy-in from the carrier's IT team.",when:"Planning implementation of a change.",tip:"'Buy-in' implies people need to be persuaded, not just informed."},
+  {p:"Let's get aligned.",m:"Make sure everyone agrees on the direction before moving.",ex:"Before the client call, let's get aligned on what we're committing to.",when:"Before any important meeting or decision.",tip:"Prevents the embarrassment of contradicting each other in front of clients."},
+  {p:"Low-hanging fruit.",m:"Easy wins that should be grabbed first.",ex:"The low-hanging fruit here is fixing the onboarding email sequence — that alone would cut drop-off by 30%.",when:"Prioritizing what to tackle first.",tip:"Great for showing you're practical and results-focused."},
+  {p:"Let's not reinvent the wheel.",m:"Use what already works instead of building from scratch.",ex:"We already have a compliance framework that works. Let's not reinvent the wheel — just adapt it.",when:"When someone proposes doing something from scratch unnecessarily.",tip:"Saves time and positions you as pragmatic."},
+  {p:"That's our bread and butter.",m:"Our core, reliable product or service.",ex:"teenSMART is our bread and butter — it's what built our reputation in the carrier space.",when:"Describing your most important offering.",tip:"Warm, confident, unpretentious."},
+  {p:"We need to leverage that.",m:"Use that asset, relationship, or data to maximum advantage.",ex:"We have twenty years of crash reduction data. We need to leverage that in every client conversation.",when:"Identifying an underused advantage.",tip:"'Leverage' signals strategic thinking."},
+]},
+{cat:"People & teams",type:"people",items:[
+  {p:"She's a go-getter.",m:"Highly motivated, proactive person who makes things happen.",ex:"The new account manager is a real go-getter — she had three client calls set up in her first week.",when:"Complimenting someone's drive and initiative.",tip:"One of the warmest professional compliments you can give."},
+  {p:"Let's get everyone on the same page.",m:"Make sure everyone has the same understanding and expectations.",ex:"Before we start the project, let's get everyone on the same page about timelines and deliverables.",when:"Opening a kickoff meeting or resolving confusion.",tip:"Essential phrase. Use it constantly."},
+  {p:"He's the go-to person.",m:"The expert everyone turns to for a specific thing.",ex:"For anything technical about the platform, I'm the go-to person on our team.",when:"Introducing yourself or a colleague's role.",tip:"Say this about yourself confidently — it's not bragging, it's clarity."},
+  {p:"She wears many hats.",m:"Does many different roles — versatile.",ex:"In a company our size, everyone wears many hats. I'm the President but I also get into the technical weeds.",when:"Describing yourself or a colleague at a small company.",tip:"Perfect for describing life at ADEPT Driver."},
+  {p:"He's a straight shooter.",m:"Direct, honest — says what he means.",ex:"I appreciate working with their CTO — he's a straight shooter, no politics.",when:"Describing someone you trust and respect.",tip:"High compliment in American business culture."},
+  {p:"Keep me in the loop.",m:"Keep me updated and informed as things develop.",ex:"I don't need to be in every meeting, but please keep me in the loop on any client escalations.",when:"Delegating while staying informed.",tip:"Very natural — use this constantly as a president."},
+  {p:"She's a team player.",m:"Works well with others, puts team success above personal glory.",ex:"What I love about Ishani is that she's a genuine team player — never looking for credit.",when:"Praising a colleague or direct report.",tip:""},
+]},
+{cat:"Meetings",type:"mtg",items:[
+  {p:"Let's take that offline.",m:"Let's discuss this privately, not in this group meeting.",ex:"That's a great point — let's take that offline so we can give it the proper attention.",when:"When a side discussion is taking over the meeting.",tip:"The most useful meeting phrase in existence."},
+  {p:"Can we park that?",m:"Set that idea aside temporarily — come back to it later.",ex:"That's worth exploring — can we park it for now and come back after we cover the main agenda?",when:"Preventing meeting derailment.",tip:"'Park' is gentler than 'table' — implies you'll definitely return to it."},
+  {p:"Let's level-set.",m:"Make sure we all start from the same understanding.",ex:"Before we dive in, let's level-set on where we are with the carrier integration.",when:"Opening a meeting where people may have different information.",tip:"Signals that you're organized and want clarity before proceeding."},
+  {p:"To piggyback on what you said...",m:"Build on someone else's point — extend their idea.",ex:"To piggyback on what Richard said — I think the timeline issue also affects our Q4 projections.",when:"Adding to a point that was just made.",tip:"Much smoother than 'and also' or 'yeah and...'"},
+  {p:"I want to flag something.",m:"Draw everyone's attention to an issue or risk.",ex:"Before we finalize this, I want to flag something — we haven't confirmed the compliance sign-off.",when:"Raising a concern before a decision is locked in.",tip:"'Flag' is neutral and professional — not alarmist."},
+  {p:"Let's do a quick sync.",m:"A brief check-in meeting — usually 15 minutes or less.",ex:"Can we do a quick sync before the client call to make sure we're aligned?",when:"Scheduling a short, focused catch-up.",tip:"'Sync' is tech-forward language — common in software companies."},
+  {p:"What's the ask here?",m:"What exactly is being requested — what do you need from me?",ex:"I've heard the background. What's the ask here — are you looking for approval or just input?",when:"Cutting to what someone actually needs from you.",tip:"Saves enormous amounts of meeting time."},
+  {p:"Let's put a pin in it.",m:"Pause the discussion — mark it to return later.",ex:"Let's put a pin in the pricing question and come back to it after the demo.",when:"Pausing a thread without abandoning it.",tip:"Similar to 'park it' — both are natural and widely used."},
+]},
+{cat:"Church & fellowship",type:"church",items:[
+  {p:"That really spoke to me.",m:"The message deeply resonated — moved me personally.",ex:"Pastor's message this Sunday really spoke to me — especially the part about perseverance.",when:"Sharing after a sermon or Bible study.",tip:"The most natural post-sermon response in an English-speaking church."},
+  {p:"I felt convicted by that.",m:"The message challenged me and revealed something I need to change.",ex:"I felt convicted by the passage on forgiveness — I've been holding onto something I need to let go.",when:"Sharing vulnerability in a small group or fellowship.",tip:"'Convicted' in church means God used the message to show you something personal — not guilt as punishment."},
+  {p:"We need to be intentional about this.",m:"We need to make deliberate, purposeful effort — not just hope it happens.",ex:"If we want our fellowship group to grow, we need to be intentional about welcoming newcomers.",when:"Encouraging the group toward purposeful action.",tip:"'Intentional' is one of the most common words in American Christian circles."},
+  {p:"God is faithful.",m:"God keeps His promises — a declaration of trust.",ex:"It's been a hard season, but God is faithful. He's never let us down.",when:"Encouraging someone going through difficulty, or sharing a testimony.",tip:"Simple, powerful, and deeply resonant in any fellowship setting."},
+  {p:"I'm walking through a season of...",m:"Describing a current life circumstance — challenges or blessings.",ex:"I'm walking through a season of transition right now, but I'm trusting God's timing.",when:"Sharing personally in a small group.",tip:"'Season' is beloved church language — implies it's temporary and purposeful."},
+  {p:"How can I pray for you?",m:"Offering to intercede — one of the most generous things you can say.",ex:"I know you're dealing with a lot at work. How can I pray for you this week?",when:"Closing a conversation or fellowship time.",tip:"This single question deepens relationships faster than almost anything else."},
+  {p:"That's a God thing.",m:"This was clearly God's doing — too perfect to be coincidence.",ex:"I ran into that client at church of all places. That's a God thing.",when:"Recognizing divine timing or provision.",tip:"Warm, casual, and deeply relatable to any Christian."},
+  {p:"I'm still processing that.",m:"The message or experience is still working on me — I need time.",ex:"The sermon this morning was a lot. I'm still processing that honestly.",when:"When you're genuinely moved but don't have words yet.",tip:"Honesty in church settings is always more connecting than a polished answer."},
+  {p:"Iron sharpens iron.",m:"We make each other better through honest relationship — from Proverbs 27:17.",ex:"That's why I value this fellowship group — iron sharpens iron. You guys push me.",when:"Describing the value of accountability relationships.",tip:"Instantly recognizable to any church community — shows your Biblical literacy."},
+  {p:"We're blessed to be a blessing.",m:"Our blessings are meant to flow outward to others.",ex:"We don't do this outreach to look good — we're blessed to be a blessing.",when:"Motivating a group toward service or generosity.",tip:"Captures the outward-focused heart of healthy Christian community."},
+]},
+{cat:"Tech & IT leadership",type:"tech",items:[
+  {p:"We're at an inflection point.",m:"A critical moment where things are about to change significantly.",ex:"AI is not just a feature anymore — we're at an inflection point in the entire industry.",when:"Describing a major shift in technology or business.",tip:"Jensen Huang uses this constantly. It signals you see the big picture."},
+  {p:"This is a force multiplier.",m:"Something that dramatically amplifies the effectiveness of everything else.",ex:"Good data is a force multiplier for our training platform — it makes every other feature more powerful.",when:"Explaining why a particular capability matters so much.",tip:"Military origin — now widely used in tech leadership."},
+  {p:"We need to future-proof this.",m:"Build it in a way that won't become obsolete.",ex:"Before we commit to this architecture, let's make sure we're future-proofing the data layer.",when:"Planning technical decisions with longevity in mind.",tip:"Clients and CEOs love this phrase — it shows you think long-term."},
+  {p:"That's a scalability question.",m:"The real issue is whether this can grow with demand.",ex:"The prototype works great in testing — but this is really a scalability question.",when:"Redirecting a technical discussion to the right level.",tip:"Positions you as someone who thinks beyond the immediate solution."},
+  {p:"We need to sunset that.",m:"Phase out an old system or feature gracefully.",ex:"The legacy reporting module has served us well, but it's time to sunset it.",when:"Proposing the retirement of an outdated system.",tip:"Much more professional than 'get rid of it.'"},
+  {p:"Let's do a technical deep-dive.",m:"A focused, detailed technical discussion — going under the hood.",ex:"I'd like to schedule a technical deep-dive with your IT team before we finalize the integration specs.",when:"Proposing a detailed technical review session.",tip:"Signals you're serious and thorough — clients appreciate this."},
+  {p:"That's a known issue.",m:"We're aware of this problem — it's documented.",ex:"The latency spike at login is a known issue — we have a fix scheduled for the next release.",when:"Responding to a reported bug or problem professionally.",tip:"Saying 'known issue' prevents panic and signals control."},
+  {p:"We need a single source of truth.",m:"One authoritative place where everyone gets the same data.",ex:"The reporting confusion happens because we have three different dashboards. We need a single source of truth.",when:"Proposing data consolidation or system architecture.",tip:"Widely used across tech, operations, and finance."},
+  {p:"That's technical debt.",m:"Shortcuts taken earlier that now slow down future development.",ex:"The reason this feature takes so long to build is technical debt from 2019.",when:"Explaining why something that sounds simple is actually complex.",tip:"Helps non-technical stakeholders understand why old shortcuts cost money later."},
+  {p:"Let's do a post-mortem.",m:"A review after something went wrong — to learn, not to blame.",ex:"After that outage, let's do a post-mortem this Friday — understand what happened and prevent it.",when:"After any incident, failure, or missed deadline.",tip:"The professional, forward-looking way to handle failures."},
+  {p:"This is a proof of concept.",m:"A prototype to test whether an idea works — not the final product.",ex:"What I'm showing you today is a proof of concept — it's meant to validate the approach, not ship tomorrow.",when:"Managing expectations during a demo or pilot.",tip:"Sets the right expectation — gives you room to iterate."},
+  {p:"We need to stress test that.",m:"Test it under extreme conditions to find its limits.",ex:"The system handled normal load fine. Now we need to stress test it at ten times the volume.",when:"Planning quality assurance or validation.",tip:"Applies to systems, plans, and processes — not just software."},
+]},
+{cat:"Anime & manga fan talk",type:"anime",items:[
+  {p:"The power scaling in this arc is insane.",m:"The way characters' strength levels are compared and evolve is dramatic and impressive.",ex:"The power scaling in the Wano arc is insane — Luffy basically becomes a god-tier fighter.",when:"Discussing Dragon Ball, One Piece, Bleach, JJK with fans.",tip:"'Power scaling' is THE central debate topic in shounen anime communities."},
+  {p:"That was a serious glow-up.",m:"A character dramatically improved or transformed — physically or emotionally.",ex:"Gon's glow-up in the Chimera Ant arc was incredible — and terrifying.",when:"Describing character development or transformation.",tip:"'Glow-up' comes from American slang but anime fans use it constantly."},
+  {p:"He's definitely the GOAT of this series.",m:"Greatest Of All Time — the undisputed best character.",ex:"Whitebeard is the GOAT. No debate.",when:"Settling arguments about best characters.",tip:"GOAT debates are the lifeblood of fan communities — use this to ignite conversation."},
+  {p:"The foreshadowing was there all along.",m:"Clues planted early in the story that paid off later.",ex:"The foreshadowing for Itadori's true power was there from chapter one — I just didn't see it.",when:"Rewatching or rereading and noticing things you missed.",tip:"Saying this signals you're a serious, attentive fan — not just casual."},
+  {p:"That hit different on the rewatch.",m:"Something you understood or felt more deeply the second time.",ex:"Roger's execution scene hit different on the rewatch after you understand the Will of D.",when:"Discussing rewatches or rereads.",tip:"'Hit different' is broadly used American slang that anime fans love."},
+  {p:"The world-building in this manga is unmatched.",m:"The detail and depth of the fictional universe is extraordinary.",ex:"Oda's world-building in One Piece is unmatched — every island, every backstory connects.",when:"Praising One Piece, Bleach, or any rich fictional universe.",tip:"'World-building' signals you appreciate craft, not just action."},
+  {p:"That plot twist came out of nowhere.",m:"A surprise story development that no one predicted.",ex:"Light's plan in Death Note — that plot twist came out of nowhere. Absolute genius writing.",when:"Reacting to a major story revelation.",tip:"Great conversation starter — everyone wants to share their reaction."},
+  {p:"The character development is chef's kiss.",m:"The character growth is perfect — exactly what it should be.",ex:"Gojo's backstory and the development of his philosophy — chef's kiss.",when:"Praising Jujutsu Kaisen, Blue Lock, or any character-driven series.",tip:"'Chef's kiss' is a widely used American expression of something being perfect."},
+  {p:"Don't sleep on this manga.",m:"Don't overlook or dismiss this — it's better than you think.",ex:"Blue Lock is criminally underrated in the West. Don't sleep on it.",when:"Recommending a series to someone who hasn't seen it.",tip:"'Don't sleep on' means don't ignore something valuable."},
+  {p:"The rivalry between them carries the whole series.",m:"The dynamic between two competing characters is the emotional engine of the story.",ex:"In Blue Lock, the rivalry between Isagi and Rin carries the whole series.",when:"Analyzing what makes a manga compelling.",tip:"This is a genuinely analytical observation — shows you think about storytelling."},
+  {p:"Manga readers already know what's coming.",m:"People who read ahead of the anime know how it ends.",ex:"I won't spoil it, but manga readers already know what's coming in the next arc.",when:"Teasing anime-only fans without spoiling.",tip:"Classic fan hierarchy joke — delivered with a smile, it's playful not arrogant."},
+  {p:"That arc had the best writing in the series.",m:"A particular story arc was the peak of the author's craft.",ex:"The Marineford arc had the best writing in One Piece — emotionally devastating and perfectly paced.",when:"Debating the best parts of a long-running series.",tip:"'Arc' is the right word — shows you know the structure of manga storytelling."},
+]},
+{cat:"Friends & everyday American",type:"friends",items:[
+  {p:"How you doin'?",m:"Joey's signature flirtatious greeting — now used as a casual, warm hello.",ex:"(walking into fellowship) How you doin'? Good to see you all.",when:"Breaking the ice at any casual gathering — everyone recognizes it.",tip:"Say it with a slight pause and a smile. The reference does the work."},
+  {p:"We were on a break!",m:"Famous Ross line — now used humorously when defending a past decision.",ex:"(joking after missing a deadline) Look, we were on a break! Just kidding — that's on me.",when:"Self-deprecating humor in a relaxed setting.",tip:"Only use with people who know Friends — which is almost everyone."},
+  {p:"Could this BE any more [adjective]?",m:"Chandler's exaggerated emphasis — used to express disbelief or amazement.",ex:"Could this meeting BE any longer? (said privately, with a smile)",when:"Light sarcasm with friends or close colleagues.",tip:"The emphasis on BE is everything. Get the delivery right."},
+  {p:"I know!",m:"Monica's signature phrase of emphatic agreement.",ex:"That presentation was so good. — I KNOW!",when:"Expressing total agreement with energy.",tip:"It's the delivery that matters — the rising intonation sells it."},
+  {p:"It's not a big deal.",m:"Classic minimizing phrase — now used sincerely or sarcastically.",ex:"Missing one update is not a big deal — just catch me up tomorrow.",when:"De-escalating tension in a casual setting.",tip:"Tone determines meaning — sincere vs. sarcastic."},
+  {p:"On a totally unrelated note...",m:"Transitioning to something that is very related — usually said with humor.",ex:"(after a tech discussion) On a totally unrelated note... anyone else think we need better coffee?",when:"Light pivot in a meeting or conversation.",tip:"The humor is in the obvious lie. It's a gentle way to change the subject."},
+]},
+{cat:"Big Bang Theory & nerd culture",type:"bbt",items:[
+  {p:"Bazinga!",m:"Sheldon's word for 'gotcha' — I was joking.",ex:"(after a deadpan joke) Bazinga. But seriously, the latency issue is real.",when:"After a deadpan joke — especially in a tech or nerdy group.",tip:"Follows your joke perfectly as a tech-culture president with a dad joke habit."},
+  {p:"That's my spot.",m:"Sheldon's obsession with his seat — now used to claim any personal preference.",ex:"(at a recurring meeting) That's my spot. I've sat here for three years.",when:"Claiming your usual seat or routine humorously.",tip:"Works in church, fellowship, office — everyone who knows BBT laughs."},
+  {p:"I'm not crazy, my mother had me tested.",m:"Sheldon's defensive response — now used to humorously defend an unusual opinion.",ex:"I know it sounds strange but hear me out — I'm not crazy, my mother had me tested.",when:"Before sharing an unconventional idea.",tip:"Perfect setup before a bold technical recommendation."},
+  {p:"Soft kitty, warm kitty...",m:"Sheldon's comfort song — now a cultural reference for needing comfort.",ex:"(to a stressed colleague) Do you need me to sing soft kitty?",when:"Offering comfort humorously to a stressed colleague or friend.",tip:"The reference alone gets a smile — you don't even have to sing it."},
+  {p:"It's not rocket science. Well, actually...",m:"Starting to correct someone with technical precision — then catching yourself.",ex:"The integration should be straightforward — it's not rocket science. Well, actually, there are three non-trivial steps.",when:"When you start to simplify but realize it's genuinely complex.",tip:"Your technical background makes this land perfectly — self-aware humor."},
+  {p:"Penny, Penny, Penny.",m:"Leonard's way of calling for Penny — now used for getting someone's attention repeatedly.",ex:"(colleague not responding to Slack) It's like Penny, Penny, Penny over here.",when:"Describing someone who isn't responding.",tip:"Only use with people who know the show — but that's most people under 60."},
+  {p:"I have a working theory.",m:"Sheldon's phrase — now used to present an idea with confidence and humor.",ex:"I have a working theory about why the drop-off rate spikes on day three of the training.",when:"Presenting a hypothesis in a meeting — especially a technical one.",tip:"Using 'working theory' instead of 'I think' sounds smarter and more curious."},
+]},
+];
+
+let activeTab='phrases';
 let activeCat='';
+
+function getData(){return activeTab==='phrases'?PHRASES:IDIOMS;}
 
 function buildCats(){
   const row=document.getElementById('cats');
+  row.innerHTML='';
   const all=document.createElement('button');
   all.className='cat-btn active';all.textContent='All';
   all.onclick=()=>setCat('');
   row.appendChild(all);
-  D.forEach(s=>{
+  getData().forEach(s=>{
     const b=document.createElement('button');
     b.className='cat-btn';b.textContent=s.cat;
     b.onclick=()=>setCat(s.cat);
@@ -160,6 +297,16 @@ function setCat(c){
   render();
 }
 
+function setTab(t){
+  activeTab=t;
+  activeCat='';
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.classList.toggle('active',b.textContent.toLowerCase().includes(t==='phrases'?'phrase':'idiom'));
+  });
+  buildCats();
+  render();
+}
+
 function speak(txt){
   window.speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(txt);
@@ -170,37 +317,53 @@ function speak(txt){
 function render(){
   const q=document.getElementById('q').value.toLowerCase();
   let total=0,html='';
-  D.forEach(sec=>{
+  getData().forEach(sec=>{
     if(activeCat&&sec.cat!==activeCat)return;
-    const items=sec.items.filter(i=>!q||(i.p+i.m+(i.before||'')+(i.after||'')+(i.tip||'')).toLowerCase().includes(q));
+    const items=sec.items.filter(i=>{
+      const searchStr=(i.p+i.m+(i.before||'')+(i.after||'')+(i.ex||'')+(i.when||'')+(i.tip||'')).toLowerCase();
+      return !q||searchStr.includes(q);
+    });
     if(!items.length)return;
     total+=items.length;
     html+=`<div class="section"><div class="sec-header">${sec.cat}</div>`;
     items.forEach(i=>{
-      const safe=i.p.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-      html+=`<div class="card ${sec.type}">
-        <div class="card-top">
-          <div style="flex:1">
-            <div class="phrase">"${i.p}"</div>
-            <div class="meaning">${i.m}</div>
+      const safe=i.p.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+      if(activeTab==='phrases'){
+        html+=`<div class="card ${sec.type}">
+          <div class="card-top">
+            <div style="flex:1">
+              <div class="phrase">"${i.p}"</div>
+              <div class="meaning">${i.m}</div>
+            </div>
+            <button class="spk-btn" onclick="speak('${safe}')" aria-label="Hear phrase">&#128266;</button>
           </div>
-          <button class="spk-btn" onclick="speak('${safe}')" aria-label="Hear phrase">&#128266;</button>
-        </div>
-        <div class="ba">
-          <div class="ba-box ba-before"><div class="ba-label">Before</div>${i.before}</div>
-          <div class="ba-box ba-after"><div class="ba-label">After</div>${i.after}</div>
-        </div>
-        <div class="tip">${i.tip}</div>
-      </div>`;
+          <div class="ba">
+            <div class="ba-box ba-before"><div class="ba-label">Before</div>${i.before}</div>
+            <div class="ba-box ba-after"><div class="ba-label">After</div>${i.after}</div>
+          </div>
+          <div class="tip">${i.tip}</div>
+        </div>`;
+      } else {
+        html+=`<div class="card ${sec.type}">
+          <div class="card-top">
+            <div style="flex:1">
+              <div class="phrase">"${i.p}"</div>
+              <div class="meaning">${i.m}</div>
+            </div>
+            <button class="spk-btn" onclick="speak('${safe}')" aria-label="Hear expression">&#128266;</button>
+          </div>
+          <div class="example"><div class="example-label">Example — in your voice</div>${i.ex}</div>
+          ${i.when?`<div class="when"><span class="when-label">When to use: </span>${i.when}</div>`:''}
+          ${i.caution?`<div class="caution">&#9888; ${i.caution}</div>`:''}
+          ${i.tip?`<div class="tip">${i.tip}</div>`:''}
+        </div>`;
+      }
     });
     html+='</div>';
   });
-  document.getElementById('cnt').textContent=total+' phrases';
-  document.getElementById('main').innerHTML=total?html:`<div class="empty"><div class="empty-icon">&#128269;</div><div>No phrases found.<br>Try a different search.</div></div>`;
+  document.getElementById('cnt').textContent=total+' expressions';
+  document.getElementById('main').innerHTML=total?html:`<div class="empty"><p style="font-size:40px;margin-bottom:12px">&#128269;</p><p>No results found.<br>Try a different search.</p></div>`;
 }
 
 buildCats();render();
 </script>
-<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js");}</script>
-</body>
-</html>
