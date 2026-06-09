@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1D9E75">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Coach Pro">
+<meta name="description" content="Professional English phrases, vocabulary, and social scripts — built for Dr. Sam.">
+<link rel="manifest" href="manifest.json">
+<title>English Coach Pro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#1a1a1a;min-height:100vh;}
+header{background:#1D9E75;color:white;padding:16px 20px;position:sticky;top:0;z-index:100;}
+header h1{font-size:20px;font-weight:600;margin-bottom:2px;}
+header p{font-size:12px;opacity:0.8;}
+.controls{padding:14px 16px;background:white;border-bottom:1px solid #e5e5e5;position:sticky;top:72px;z-index:99;}
+.controls input{width:100%;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:15px;margin-bottom:8px;background:#fafafa;}
+.controls input:focus{outline:none;border-color:#1D9E75;}
+.cat-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;}
+.cat-btn{padding:6px 12px;border-radius:20px;border:1px solid #ddd;background:white;font-size:13px;white-space:nowrap;cursor:pointer;color:#555;}
+.cat-btn.active{background:#1D9E75;color:white;border-color:#1D9E75;}
+.count{padding:10px 16px;font-size:13px;color:#888;}
+.section{margin-bottom:8px;}
+.sec-header{padding:10px 16px 6px;font-size:13px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:0.05em;}
+.card{background:white;margin:0 12px 10px;border-radius:14px;padding:16px;border-left:4px solid #ccc;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.card.power{border-left-color:#534AB7;}
+.card.exec{border-left-color:#1D9E75;}
+.card.social{border-left-color:#378ADD;}
+.card.dad{border-left-color:#BA7517;}
+.card.speaker{border-left-color:#D4537E;}
+.card.meeting{border-left-color:#D85A30;}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+.phrase{font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:4px;line-height:1.3;}
+.meaning{font-size:13px;color:#666;margin-bottom:10px;}
+.spk-btn{background:#f0faf6;border:none;border-radius:10px;padding:8px 10px;cursor:pointer;color:#1D9E75;font-size:18px;flex-shrink:0;}
+.spk-btn:active{background:#d0efe6;}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.ba-box{padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;}
+.ba-before{background:#fafafa;color:#888;}
+.ba-after{background:#e8f7f2;color:#085041;}
+.ba-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;opacity:0.7;}
+.tip{font-size:12px;color:#888;font-style:italic;border-top:1px solid #f0f0f0;padding-top:8px;}
+.empty{text-align:center;padding:60px 20px;color:#aaa;}
+.empty-icon{font-size:48px;margin-bottom:12px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>English Coach Pro</h1>
+  <p>Professional phrases for every situation</p>
+</header>
+<div class="controls">
+  <input type="search" id="q" placeholder="Search phrases, situations..." oninput="render()">
+  <div class="cat-row" id="cats"></div>
+</div>
+<div class="count" id="cnt"></div>
+<div id="main"></div>
+
+<script>
+const D=[
+{cat:"Power vocabulary",type:"power",items:[
+  {p:"That's a nuanced point.",m:"Shows you see complexity others miss.",before:"That's complicated.",after:"That's a nuanced point — let me unpack it.",tip:"Use when someone raises a layered issue in a meeting."},
+  {p:"The underlying issue here is...",m:"Cuts through surface noise to the root cause.",before:"The real problem is...",after:"The underlying issue here is that our infrastructure hasn't scaled with demand.",tip:"Sounds more analytical than 'the real problem.'"},
+  {p:"From a strategic standpoint...",m:"Signals executive-level thinking.",before:"I think we should...",after:"From a strategic standpoint, this investment positions us well for Q3.",tip:"Opens any recommendation with gravitas."},
+  {p:"To put this in context...",m:"Frames data so it lands with meaning.",before:"So the numbers are...",after:"To put this in context, last year's baseline was 40% lower.",tip:"Use before sharing any statistic or comparison."},
+  {p:"The implication of this is...",m:"Shows you think beyond the obvious.",before:"So that means...",after:"The implication of this is that we may need to revisit our rollout timeline.",tip:"Elevates casual observations to analytical conclusions."},
+  {p:"What this essentially means is...",m:"Translates technical content for non-technical audiences.",before:"In other words...",after:"What this essentially means is the system can handle ten times the load.",tip:"Perfect when translating tech to business stakeholders."},
+  {p:"I'd like to draw a distinction here.",m:"Signals precise thinking.",before:"Wait, those are different...",after:"I'd like to draw a distinction here between system performance and user experience.",tip:"Use when two concepts are being confused."},
+  {p:"That's a compelling argument.",m:"Acknowledges a strong point professionally.",before:"Yeah that's a good point.",after:"That's a compelling argument — and it reinforces what I was about to propose.",tip:"Validates others while keeping your momentum."},
+  {p:"Let me offer a different perspective.",m:"Disagrees gracefully without confrontation.",before:"I don't agree.",after:"Let me offer a different perspective on that.",tip:"The professional way to push back in any setting."},
+  {p:"The data suggests...",m:"Grounds your opinion in evidence.",before:"I think...",after:"The data suggests we're looking at a two-month delay if we don't act now.",tip:"Shifts from opinion to evidence-based language."},
+  {p:"That's not entirely accurate.",m:"Corrects someone without embarrassing them.",before:"That's wrong.",after:"That's not entirely accurate — let me add some context.",tip:"Useful when correcting diplomatically."},
+  {p:"To be precise...",m:"Signals technical accuracy.",before:"I mean...",after:"To be precise, the latency issue occurs only under peak load conditions.",tip:"Use before a technical clarification."},
+  {p:"This warrants further discussion.",m:"Flags an issue without derailing the meeting.",before:"We need to talk about this more.",after:"This warrants further discussion — can we schedule a follow-up?",tip:"Elegant way to table something."},
+  {p:"Let me be transparent about this.",m:"Signals honesty and builds trust.",before:"I have to tell you...",after:"Let me be transparent — we are behind schedule by about two weeks.",tip:"Use when delivering uncomfortable truths."},
+  {p:"That aligns with what I've been observing.",m:"Validates a point while adding your authority.",before:"Yeah I noticed that too.",after:"That aligns with what I've been observing over the past quarter.",tip:"Shows you've been paying attention."},
+]},
+{cat:"Presentation phrases",type:"exec",items:[
+  {p:"Let me walk you through this.",m:"Classic professional opener for any explanation.",before:"So let me explain...",after:"Let me walk you through the architecture of the system.",tip:"Use to open any technical explanation."},
+  {p:"There are three key points I want to make.",m:"Signals organized thinking.",before:"I have some things to say...",after:"There are three key points I want to make about our migration plan.",tip:"Always preview your structure."},
+  {p:"Let me start with the big picture.",m:"Opens broad before going deep.",before:"Okay so first...",after:"Let me start with the big picture before we get into the technical details.",tip:"Essential for mixed audiences."},
+  {p:"This brings me to my next point.",m:"Smooth transition between ideas.",before:"And also...",after:"This brings me to my next point about scalability.",tip:"Replaces 'um, so...' between points."},
+  {p:"To summarize what we've covered...",m:"Signals you're wrapping up.",before:"So yeah that's it...",after:"To summarize: the problem, the solution, and the timeline.",tip:"Always close with a summary."},
+  {p:"The question worth asking here is...",m:"Introduces a key point as a rhetorical question.",before:"So we need to think about...",after:"The question worth asking here is: can our infrastructure support this growth?",tip:"Engages the audience."},
+  {p:"What makes this significant is...",m:"Tells the audience why they should care.",before:"This is important because...",after:"What makes this significant is that no other vendor has solved this.",tip:"Use after presenting a finding."},
+  {p:"I want to be very clear about this.",m:"Signals a critical point is coming.",before:"Listen...",after:"I want to be very clear — this is not a resource issue, it's a process issue.",tip:"Prevents misunderstanding on important points."},
+  {p:"Bear with me for a moment.",m:"Buys time confidently.",before:"Um wait...",after:"Bear with me for a moment while I pull up the right data.",tip:"Confident people say this."},
+  {p:"Does that make sense so far?",m:"Checks comprehension professionally.",before:"You understand?",after:"Does that make sense so far, or would you like me to go deeper?",tip:"Much better than 'you get it?'"},
+  {p:"Let me give you a concrete example.",m:"Signals a practical illustration.",before:"Like for example...",after:"Let me give you a concrete example of how this plays out in production.",tip:"Grounds abstract concepts in reality."},
+  {p:"The bottom line is...",m:"Cuts to the conclusion.",before:"So basically...",after:"The bottom line is: we need three more weeks to do this right.",tip:"Executives love this phrase."},
+  {p:"My recommendation would be...",m:"Owns a position with confidence.",before:"I think maybe we should...",after:"My recommendation would be to phase the rollout over two quarters.",tip:"'Would be' sounds considered but still authoritative."},
+  {p:"This is where it gets interesting.",m:"Re-engages an audience that may be drifting.",before:"Okay so now...",after:"This is where it gets interesting — the system performs better under stress.",tip:"Use before your most important point."},
+]},
+{cat:"Social conversation",type:"social",items:[
+  {p:"How do you know [the host]?",m:"The universal opener at any party.",before:"(standing alone nervously)",after:"How do you know Sarah? Did you two go to school together?",tip:"Works at every event. Everyone has an answer."},
+  {p:"I love what you said about...",m:"Joins an existing group conversation gracefully.",before:"(interrupting awkwardly)",after:"I love what you said about that — I've been thinking the same thing.",tip:"Listen for 30 seconds before jumping in."},
+  {p:"This is my first time here — is it always this lively?",m:"Admits newness in a charming way.",before:"I don't really know anyone here.",after:"This is my first time at one of these — is it always this lively?",tip:"Invites people to help you feel welcome."},
+  {p:"What do you do when you're not [here]?",m:"Gets people talking about what they love.",before:"What do you do for work?",after:"What do you do when you're not celebrating your friends' birthdays?",tip:"More interesting than 'what do you do?'"},
+  {p:"That's actually really fascinating — tell me more.",m:"The phrase that makes anyone feel heard.",before:"Oh okay cool.",after:"That's actually really fascinating — tell me more about how that works.",tip:"People remember feeling interesting, not when you were interesting."},
+  {p:"You know, I never thought about it that way.",m:"Shows intellectual humility.",before:"Hmm.",after:"You know, I never thought about it that way. That actually changes how I see it.",tip:"Makes the other person feel insightful."},
+  {p:"Can I ask your take on something?",m:"Invites someone into a mini-discussion.",before:"What do you think?",after:"Can I ask your take on something? I've been wrestling with this idea.",tip:"People feel flattered when asked for their opinion."},
+  {p:"What's been the highlight of your week?",m:"Better than 'how are you' — gets a real answer.",before:"How are you doing?",after:"What's been the highlight of your week so far?",tip:"Almost no one asks this. It makes you memorable."},
+  {p:"I couldn't help but overhear — sorry to jump in, but...",m:"Polite way to join a conversation.",before:"(never joining)",after:"I couldn't help but overhear — I'm sorry to jump in, but I dealt with something similar.",tip:"The apology makes the interruption welcome."},
+  {p:"That reminds me of something that happened to me.",m:"Natural bridge to sharing your own story.",before:"Oh yeah me too...",after:"That actually reminds me of something when I first moved to the U.S.",tip:"Personal stories connect people faster than facts."},
+]},
+{cat:"Dad joke delivery",type:"dad",items:[
+  {p:"Okay, I have to warn you — this is a dad joke.",m:"The pre-warning is half the humor.",before:"(just saying the joke)",after:"Okay, I have to warn you — this is a dad joke. You ready?",tip:"The meta-awareness makes it funnier."},
+  {p:"I'm not apologizing for that one.",m:"Sells the joke after the groan.",before:"(laughing nervously)",after:"(after the groan) I'm not apologizing for that one. That was solid.",tip:"Confidence after a groan is the key to dad joke delivery."},
+  {p:"I've been waiting all day to say that.",m:"Classic dad joke closer.",before:"Haha get it?",after:"I've been waiting all day to say that.",tip:"Implies you planned it — more endearing."},
+  {p:"That one's free. The next one costs you.",m:"Keeps the energy going after a successful joke.",before:"(nothing)",after:"That one's free. The next one costs you.",tip:"Works when you're on a roll with your son's friends."},
+  {p:"I know, I know. I'll see myself out.",m:"Self-aware exit after a truly terrible pun.",before:"(laughing at your own joke too hard)",after:"I know, I know. I'll see myself out.",tip:"The most beloved dad joke phrase. Physically pretend to leave."},
+]},
+{cat:"Public speaking",type:"speaker",items:[
+  {p:"Thank you for having me — it's an honor to be here.",m:"Classic and graceful opening.",before:"Um okay so thank you for inviting me...",after:"Thank you for having me — it's a genuine honor to be here with all of you today.",tip:"Say it slowly — don't rush the opening."},
+  {p:"Let me start with a question.",m:"Engages the audience from the first sentence.",before:"So today I'm going to talk about...",after:"Let me start with a question — how many of you have felt technology was working against you?",tip:"Rhetorical questions create instant participation."},
+  {p:"In my experience working with...",m:"Grounds your credibility naturally.",before:"I know a lot about this because...",after:"In my experience working with insurance carriers and fleet operators across the country...",tip:"Let your experience speak — don't announce it."},
+  {p:"What I've come to believe, after decades in this field, is...",m:"Authority statement that carries weight.",before:"I think...",after:"What I've come to believe, after decades in this field, is that technology only works when people trust it.",tip:"'Decades in this field' does the credibility work for you."},
+  {p:"Let me tell you a story.",m:"The most powerful pivot in any talk.",before:"Here's an example...",after:"Let me tell you a story. When I first came to this country at 13 years old...",tip:"The audience leans in every single time."},
+  {p:"And that's when it hit me.",m:"The turning point phrase in any story.",before:"And then I realized...",after:"And that's when it hit me — the problem wasn't the system. It was how we were thinking about it.",tip:"'Hit me' is visceral. It signals a genuine moment of insight."},
+  {p:"If there's one thing I want you to take away today...",m:"Signals your core message.",before:"So the main point is...",after:"If there's one thing I want you to take away today, it's this: safe drivers are made, not born.",tip:"Say this slowly. Pause before the takeaway."},
+  {p:"I'll leave you with this thought.",m:"Elegant closing signal.",before:"Okay so that's about it...",after:"I'll leave you with this thought — every system reflects the values of the people who built it.",tip:"A closing thought should be quotable. Write it beforehand."},
+  {p:"Thank you for your time and your attention.",m:"Closes with sincere gratitude.",before:"Okay that's it, thanks.",after:"Thank you for your time and your attention — both are valuable, and I don't take either for granted.",tip:"The addition after the comma makes it memorable."},
+]},
+{cat:"Meeting & pushback",type:"meeting",items:[
+  {p:"Actually, I'd like to finish my point.",m:"Reclaims the floor without aggression.",before:"(going silent when interrupted)",after:"Actually, I'd like to finish my point — and then I'd love to hear your thoughts.",tip:"'And then I'd love to hear your thoughts' disarms the interrupter."},
+  {p:"I want to make sure I understand your concern.",m:"Buys time and shows maturity.",before:"(getting defensive)",after:"I want to make sure I understand your concern before I respond.",tip:"Always makes you look like the more senior person in the room."},
+  {p:"That's one way to look at it. Another way would be...",m:"Redirects without dismissing.",before:"No, that's not right.",after:"That's one way to look at it. Another way would be to consider the long-term support cost.",tip:"Lets the other person save face while you correct the direction."},
+  {p:"I think we may be solving for different problems.",m:"Exposes a misalignment elegantly.",before:"That doesn't make sense.",after:"I think we may be solving for different problems — can we align on the goal first?",tip:"Redirects conflict toward collaboration."},
+  {p:"With respect, I'd push back on that slightly.",m:"Professional disagreement — polite but firm.",before:"I disagree.",after:"With respect, I'd push back on that slightly — the data doesn't support that conclusion.",tip:"'Slightly' keeps the relationship intact."},
+  {p:"Can I add some context to that?",m:"Politely corrects without a direct challenge.",before:"That's not the full story.",after:"Can I add some context? There are factors that aren't visible in that summary.",tip:"Framing a correction as 'adding context' is much less threatening."},
+  {p:"I'm confident in this recommendation.",m:"Holds a position under pressure.",before:"I think this is right but I'm not sure...",after:"I'm confident in this recommendation based on what I've seen in similar implementations.",tip:"Confidence is a skill. This phrase practices it."},
+  {p:"Let's take this offline.",m:"Removes conflict from a group setting.",before:"Can we talk later?",after:"This is important — let's take it offline so we can give it the attention it deserves.",tip:"The added reason makes it sound collaborative, not dismissive."},
+]},
+];
+
+let activeCat='';
+
+function buildCats(){
+  const row=document.getElementById('cats');
+  const all=document.createElement('button');
+  all.className='cat-btn active';all.textContent='All';
+  all.onclick=()=>setCat('');
+  row.appendChild(all);
+  D.forEach(s=>{
+    const b=document.createElement('button');
+    b.className='cat-btn';b.textContent=s.cat;
+    b.onclick=()=>setCat(s.cat);
+    row.appendChild(b);
+  });
+}
+
+function setCat(c){
+  activeCat=c;
+  document.querySelectorAll('.cat-btn').forEach(b=>{
+    b.classList.toggle('active',b.textContent===(c||'All'));
+  });
+  render();
+}
+
+function speak(txt){
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(txt);
+  u.lang='en-US';u.rate=0.85;u.pitch=1;
+  window.speechSynthesis.speak(u);
+}
+
+function render(){
+  const q=document.getElementById('q').value.toLowerCase();
+  let total=0,html='';
+  D.forEach(sec=>{
+    if(activeCat&&sec.cat!==activeCat)return;
+    const items=sec.items.filter(i=>!q||(i.p+i.m+(i.before||'')+(i.after||'')+(i.tip||'')).toLowerCase().includes(q));
+    if(!items.length)return;
+    total+=items.length;
+    html+=`<div class="section"><div class="sec-header">${sec.cat}</div>`;
+    items.forEach(i=>{
+      const safe=i.p.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      html+=`<div class="card ${sec.type}">
+        <div class="card-top">
+          <div style="flex:1">
+            <div class="phrase">"${i.p}"</div>
+            <div class="meaning">${i.m}</div>
+          </div>
+          <button class="spk-btn" onclick="speak('${safe}')" aria-label="Hear phrase">&#128266;</button>
+        </div>
+        <div class="ba">
+          <div class="ba-box ba-before"><div class="ba-label">Before</div>${i.before}</div>
+          <div class="ba-box ba-after"><div class="ba-label">After</div>${i.after}</div>
+        </div>
+        <div class="tip">${i.tip}</div>
+      </div>`;
+    });
+    html+='</div>';
+  });
+  document.getElementById('cnt').textContent=total+' phrases';
+  document.getElementById('main').innerHTML=total?html:`<div class="empty"><div class="empty-icon">&#128269;</div><div>No phrases found.<br>Try a different search.</div></div>`;
+}
+
+buildCats();render();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js");}</script>
+</body>
+</html>
